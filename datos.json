@@ -1,0 +1,11 @@
+[
+{"marca": "a", "ciudad": "a", "valor": 1.0},
+{"marca": "a", "ciudad": "b", "valor": 4.0},
+{"marca": "a", "ciudad": "c", "valor": 7.0},
+{"marca": "b", "ciudad": "a", "valor": 2.0},
+{"marca": "b", "ciudad": "b", "valor": 5.0},
+{"marca": "b", "ciudad": "c", "valor": 8.0},
+{"marca": "c", "ciudad": "a", "valor": 3.0},
+{"marca": "c", "ciudad": "b", "valor": 6.0},
+{"marca": "c", "ciudad": "c", "valor": 9.0}
+]
