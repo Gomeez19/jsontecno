@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Json</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+    <div class="contenedor3">
+        <h1>ARCHIVO JSON</h1>
+        <P>En este apartado podremos visualizar el archivo Json que contiene los datos anteriormente guardados desde el
+            programa creado en java Maven</P>
+        <ul>
+            <li>Ciudades columnas</li>
+            <li>Marcas filas</li>
+            <li>Ventas por ciudad y marca</li>
+        </ul>
+    </div>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+    </head>
+    <table id="data-table">
+        <thead>
+        </thead>
+        <tbody id="table-body"></tbody>
+    </table>
+
+    <script>
+
+        // Función para construir y mostrar la tabla
+        function crearTabla(jsonData) {
+            const tableBody = document.getElementById('table-body');
+
+            // Obtener todas las marcas y ciudades únicas
+            const marcasUnicas = [...new Set(jsonData.map(entry => entry.marca))];
+            const ciudadesUnicas = [...new Set(jsonData.map(entry => entry.ciudad))];
+
+            // Construir la fila de encabezados
+            const headerRow = document.getElementById('data-table').getElementsByTagName('thead')[0].insertRow(0);
+            const emptyTh = document.createElement('th');
+            headerRow.appendChild(emptyTh);
+            ciudadesUnicas.forEach(ciudades => {
+                const th = document.createElement('th');
+                th.textContent = ciudades;
+                headerRow.appendChild(th);
+            });
+
+            // Limpiar el cuerpo de la tabla
+            tableBody.innerHTML = '';
+
+            // Iterar sobre las ciudades y agregar filas a la tabla
+            marcasUnicas.forEach(marca => {
+                const row = document.createElement('tr');
+
+                // Agregar la ciudad como encabezado de fila
+                const marcaHeader = document.createElement('th');
+                marcaHeader.textContent = marca;
+                row.appendChild(marcaHeader);
+
+                // Iterar sobre las marcas y agregar celdas con valores
+                ciudadesUnicas.forEach(ciudad => {
+                    const valor = getValorPorMarcaYCiudad(jsonData, ciudad, marca);
+                    const cell = document.createElement('td');
+                    cell.textContent = valor;
+                    row.appendChild(cell);
+                });
+
+                // Agregar la fila a la tabla
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Función para obtener el valor correspondiente a una marca y ciudad
+        function getValorPorMarcaYCiudad(jsonData, ciudad, marca) {
+            const entry = jsonData.find(entry => entry.marca === marca && entry.ciudad === ciudad);
+            return entry ? entry.valor : '';
+        }
+
+        // Función para consumir el API y mostrar los datos en la tabla
+        function fetchData() {
+            // URL del API
+            const apiUrl = 'https://gomeez19.github.io/jsontecno/datos.json';
+
+            // Hacer la solicitud a la API utilizando fetch
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    // Iterar sobre los datos y dibujar ña tabla
+                    crearTabla(data);
+                })
+                .catch(error => {
+                    console.error('Erro obteniendo la información:', error);
+                });
+        }
+
+
+        // Llamar a la función al cargar la página
+        fetchData();
+    </script>
+</body>
+
+</html>
