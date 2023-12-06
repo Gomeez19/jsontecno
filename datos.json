@@ -1,11 +1,11 @@
 [
-{"marca": "a", "ciudad": "a", "valor": 1.0},
-{"marca": "a", "ciudad": "b", "valor": 4.0},
-{"marca": "a", "ciudad": "c", "valor": 7.0},
-{"marca": "b", "ciudad": "a", "valor": 2.0},
-{"marca": "b", "ciudad": "b", "valor": 5.0},
-{"marca": "b", "ciudad": "c", "valor": 8.0},
-{"marca": "c", "ciudad": "a", "valor": 3.0},
-{"marca": "c", "ciudad": "b", "valor": 6.0},
-{"marca": "c", "ciudad": "c", "valor": 9.0}
+{"marca": "XIAOMI", "ciudad": "BARRANQUILLA", "valor": 1000000.0},
+{"marca": "XIAOMI", "ciudad": "VALLEDUPAR", "valor": 4000000.0},
+{"marca": "XIAOMI", "ciudad": "MEDELLIN", "valor": 7000000.0},
+{"marca": "IPHONE", "ciudad": "BARRANQUILLA", "valor": 2000000.0},
+{"marca": "IPHONE", "ciudad": "VALLEDUPAR", "valor": 5000000.0},
+{"marca": "IPHONE", "ciudad": "MEDELLIN", "valor": 8000000.0},
+{"marca": "ASUS", "ciudad": "BARRANQUILLA", "valor": 3000000.0},
+{"marca": "ASUS", "ciudad": "VALLEDUPAR", "valor": 6000000.0},
+{"marca": "ASUS", "ciudad": "MEDELLIN", "valor": 9000000.0}
 ]
